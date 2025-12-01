@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manu Sonkar – Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#000;color:white;overflow-x:hidden;}
+
+/* SECTION STYLING */
+section{height:100vh;padding:70px;display:flex;flex-direction:column;justify-content:center;position:relative;}
+section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);}
+.content{position:relative;z-index:2;}
+
+/* NAVBAR */
+.menu{position:fixed;top:20px;right:20px;background:rgba(255,255,255,0.08);padding:12px 20px;border-radius:12px;backdrop-filter:blur(10px);z-index:1000;}
+.menu a{margin:0 12px;color:white;text-decoration:none;font-weight:600;}
+
+/* DARK MODE */
+.dark-btn{position:fixed;bottom:20px;right:20px;background:#00eaff;color:#000;padding:12px 15px;border-radius:10px;font-weight:700;cursor:pointer;z-index:1000;}
+
+/* HEADINGS & TEXT */
+h1{font-size:60px;margin-bottom:10px;}
+p{font-size:20px;max-width:650px;margin-top:10px;}
+
+/* PROFILE IMAGE */
+.profile-img{width:180px;height:180px;border-radius:50%;border:4px solid #00eaff;box-shadow:0 0 25px #00eaff;margin-bottom:15px;}
+
+/* TYPING */
+.typing{color:#00eaff;font-size:28px;font-weight:600;margin-top:5px;height:35px;overflow:hidden;border-right:3px solid #00eaff;white-space:nowrap;animation:typing 3.5s steps(30) infinite alternate;}
+@keyframes typing{0%{width:0}100%{width:360px}}
+
+/* CARDS */
+.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:25px;margin:20px 0;backdrop-filter:blur(10px);}
+
+/* SKILL BARS */
+.skill-bar{margin:14px 0;}
+.bar{width:100%;height:14px;border-radius:8px;background:#222;overflow:hidden;}
+.fill{height:14px;background:#00eaff;width:0;animation:fill 2s forwards;}
+@keyframes fill{to{width:var(--w);}}
+
+/* GRID PORTFOLIO */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px;}
+.box{background:#111;padding:15px;border-radius:10px;text-align:center;border:1px solid #00eaff;box-shadow:0 0 10px #00eaff;cursor:pointer;transition:0.3s;}
+.box:hover{transform:scale(1.05);}
+
+/* CONTACT */
+input,textarea{width:100%;padding:12px;font-size:18px;margin:10px 0;border-radius:10px;border:none;}
+button{padding:12px 20px;font-size:20px;background:#00eaff;color:#000;border:none;border-radius:10px;cursor:pointer;}
+
+/* LOADER */
+#loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;}
+.spinner{width:70px;height:70px;border:7px solid #00eaff;border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{100%{transform:rotate(360deg);}}
+
+/* SCROLL ANIMATION */
+.fade{opacity:0;transform:translateY(40px);transition:all .8s ease;}
+.fade.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
+<!-- NAVBAR -->
+<div class="menu fade">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- DARK MODE -->
+<div class="dark-btn" onclick="toggleDark()">Dark/Light</div>
+
+<!-- HOME -->
+<section id="home" style="background:url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1350') center/cover;">
+<div class="content fade">
+    <img src="mypic.jpeg" class="profile-img">
+    <h1>I’m Manu Sonkar</h1>
+    <div class="typing">Engineer • Developer • Creator</div>
+    <p>Creative engineer with passion for coding, CNC, designing and premium website making.</p>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:url('https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&w=1350') center/cover;">
+<div class="content fade">
+<h1>About Me</h1>
+<div class="card">
+<p>Main <b>Manu Sonkar</b> – ek engineer, coder aur creator hoon. Mujhe tech, design aur machines ka combination pasand hai.</p>
+</div>
+
+<div class="card">
+<b>Name:</b> Manu Sonkar <br>
+<b>Role:</b> Engineer & Developer <br>
+<b>Interest:</b> Coding, CNC, Websites <br>
+<b>Goal:</b> Growth & Innovation 🚀  
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1350') center/cover;">
+<div class="content fade">
+<h1>My Skills</h1>
+<div class="card">
+<h2>💻 Coding</h2>
+<div class="skill-bar">HTML/CSS<div class="bar"><div class="fill" style="--w:95%;"></div></div></div>
+<div class="skill-bar">JavaScript<div class="bar"><div class="fill" style="--w:85%;"></div></div></div>
+<div class="skill-bar">UI/UX<div class="bar"><div class="fill" style="--w:90%;"></div></div></div>
+</div>
+
+<div class="card">
+<h2>🛠 CNC & Engineering</h2>
+<div class="skill-bar">CNC Programming<div class="bar"><div class="fill" style="--w:92%;"></div></div></div>
+<div class="skill-bar">Machine Knowledge<div class="bar"><div class="fill" style="--w:88%;"></div></div></div>
+</div>
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background:url('https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1350') center/cover;">
+<div class="content fade">
+<h1>Portfolio</h1>
+<div class="card">
+<div class="grid">
+  <div class="box" onclick="window.open('http://mahirlaaj1310.github.io/abeershineworks','_blank')">Car Wash Website</div>
+  <div class="box" onclick="window.open('cadd1.jpeg','_blank');window.open('cadd2.jpeg','_blank');window.open('cadd3.jpeg','_blank');window.open('cadd4.jpeg','_blank')">CNC Part Drawing</div>
+  <div class="box" onclick="window.open('https://example.com/guess','_blank');window.open('https://example.com/rps','_blank');window.open('https://example.com/caesar','_blank');window.open('https://example.com/calculator','_blank')">Java Game Code</div>
+  <div class="box" onclick="window.open('ui1.jpeg','_blank');window.open('ui2.jpeg','_blank');window.open('ui3.jpeg','_blank')">UI Designs</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="content fade">
+<h1>Contact Me</h1>
+<div class="card">
+<input id="name" type="text" placeholder="Your Name">
+<input id="email" type="email" placeholder="Your Email">
+<textarea id="msg" rows="4" placeholder="Your Message"></textarea>
+<button onclick="sendWa()">Send on WhatsApp</button>
+</div>
+</div>
+</section>
+
+<script>
+window.addEventListener("load", function(){document.getElementById("loader").style.display="none";});
+
+/* DARK MODE */
+function toggleDark(){document.body.classList.toggle("light");}
+
+/* WHATSAPP */
+function sendWa(){
+ let n=document.getElementById("name").value;
+ let e=document.getElementById("email").value;
+ let m=document.getElementById("msg").value;
+ let text=`Name: ${n}%0AEmail: ${e}%0AMessage: ${m}`;
+ window.open(`https://wa.me/917906199445?text=${text}`);
+}
+
+/* SCROLL ANIMATION */
+const fades=document.querySelectorAll(".fade");
+function showElements(){fades.forEach(el=>{const top=el.getBoundingClientRect().top;if(top<window.innerHeight-100){el.classList.add("visible");}});}
+window.addEventListener("scroll",showElements);
+showElements();
+</script>
+
+</body>
+</html>
