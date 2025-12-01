@@ -7,6 +7,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<!-- Particles.js library -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 html{scroll-behavior:smooth;}
@@ -21,16 +24,17 @@ body.light .card{background:rgba(0,0,0,0.1);color:#000;}
 body.light .box{background:#eee;color:#000;border-color:#00eaff;box-shadow:0 0 10px #00eaff;}
 body.light .profile-img{border:4px solid #00eaff;}
 
+/* PARTICLES */
+#particles-js{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;}
+
 /* SECTION STYLING */
 section{height:100vh;padding:70px;display:flex;flex-direction:column;justify-content:center;position:relative;transition:0.4s;}
-section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.6));backdrop-filter:blur(5px);transition:0.4s;}
-.content{position:relative;z-index:2;}
+section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);transition:0.4s;z-index:1;}
+.content{position:relative;z-index:2;color:white;}
 
 /* NAVBAR */
-.menu{position:fixed;top:20px;right:20px;background:rgba(255,255,255,0.08);padding:12px 20px;border-radius:12px;backdrop-filter:blur(10px);z-index:1000;transition:0.4s;}
+.menu{position:fixed;top:20px;right:20px;background:rgba(255,255,255,0.08);padding:12px 20px;border-radius:12px;backdrop-filter:blur(10px);z-index:1000;}
 .menu a{margin:0 12px;color:white;text-decoration:none;font-weight:600;transition:0.4s;}
-.menu.scrolled{background:rgba(0,0,0,0.7);}
-body.light .menu.scrolled{background:rgba(255,255,255,0.7);}
 
 /* DARK MODE BUTTON */
 .dark-btn{position:fixed;bottom:20px;right:20px;background:#00eaff;color:#000;padding:12px 15px;border-radius:10px;font-weight:700;cursor:pointer;z-index:1000;transition:0.4s;}
@@ -40,16 +44,13 @@ h1{font-size:60px;margin-bottom:10px;transition:0.4s;}
 p{font-size:20px;max-width:650px;margin-top:10px;transition:0.4s;}
 
 /* PROFILE IMAGE */
-.profile-img{width:180px;height:180px;border-radius:50%;border:4px solid #00eaff;box-shadow:0 0 25px #00eaff;margin-bottom:15px;transition:0.5s;}
-.profile-img:hover{transform:scale(1.1);box-shadow:0 0 40px #00eaff;}
+.profile-img{width:180px;height:180px;border-radius:50%;border:4px solid #00eaff;box-shadow:0 0 25px #00eaff;margin-bottom:15px;transition:0.4s;}
 
 /* TYPING */
-.typing{color:#00eaff;font-size:28px;font-weight:600;margin-top:5px;height:35px;overflow:hidden;border-right:3px solid #00eaff;white-space:nowrap;animation:typing 3.5s steps(30) infinite alternate, blink 0.7s infinite;}
-@keyframes typing{0%{width:0}100%{width:360px}}
-@keyframes blink{0%,50%,100%{border-color:transparent;}25%,75%{border-color:#00eaff;}}
+.typing{color:#00eaff;font-size:28px;font-weight:600;margin-top:5px;height:35px;overflow:hidden;border-right:3px solid #00eaff;white-space:nowrap;animation:typing 3.5s steps(30) infinite alternate;}
 
 /* CARDS */
-.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:25px;margin:20px 0;backdrop-filter:blur(10px);transition:0.4s;}
+.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:25px;margin:20px 0;backdrop-filter:blur(10px);transition:0.4s;color:white;}
 
 /* SKILL BARS */
 .skill-bar{margin:14px 0;}
@@ -58,13 +59,12 @@ p{font-size:20px;max-width:650px;margin-top:10px;transition:0.4s;}
 
 /* GRID PORTFOLIO */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px;}
-.box{background:#111;padding:15px;border-radius:10px;text-align:center;border:1px solid #00eaff;box-shadow:0 0 10px #00eaff;cursor:pointer;transition:0.4s;}
-.box:hover{transform:scale(1.07);box-shadow:0 0 20px #00eaff;border-color:#00eaff;}
+.box{background:#111;padding:15px;border-radius:10px;text-align:center;border:1px solid #00eaff;box-shadow:0 0 10px #00eaff;cursor:pointer;transition:0.3s;}
+.box:hover{transform:scale(1.05);}
 
 /* CONTACT */
 input,textarea{width:100%;padding:12px;font-size:18px;margin:10px 0;border-radius:10px;border:none;}
-button{padding:12px 20px;font-size:20px;background:#00eaff;color:#000;border:none;border-radius:10px;cursor:pointer;transition:0.4s;}
-button:hover{background:linear-gradient(45deg,#00eaff,#0055ff);color:#fff;}
+button{padding:12px 20px;font-size:20px;background:#00eaff;color:#000;border:none;border-radius:10px;cursor:pointer;}
 
 /* LOADER */
 #loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;}
@@ -74,10 +74,14 @@ button:hover{background:linear-gradient(45deg,#00eaff,#0055ff);color:#fff;}
 /* SCROLL ANIMATION */
 .fade{opacity:0;transform:translateY(40px);transition:all .8s ease;}
 .fade.visible{opacity:1;transform:translateY(0);}
+@keyframes typing{0%{width:0}100%{width:360px}}
 </style>
 </head>
 
 <body>
+
+<!-- PARTICLES -->
+<div id="particles-js"></div>
 
 <!-- LOADER -->
 <div id="loader">
@@ -97,41 +101,41 @@ button:hover{background:linear-gradient(45deg,#00eaff,#0055ff);color:#fff;}
 <div class="dark-btn" onclick="toggleDark()">Dark/Light</div>
 
 <!-- HOME -->
-<section id="home" style="background:url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1350') center/cover;">
+<section id="home">
 <div class="content fade">
     <img src="images/mypic1.jpeg" class="profile-img">
     <h1>I’m Manu Sonkar</h1>
-    <div class="typing">Engineer • Developer • Creator</div>
-    <p>Creative engineer with passion for coding, CNC, designing and premium website making.</p>
+    <div class="typing">Engineer • Developer • Creator • Trader</div>
+    <p>Creative engineer & developer with experience in coding, CNC, UI/UX design and stock market trading (stocks, futures & options).</p>
 </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" style="background:url('https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&w=1350') center/cover;">
+<section id="about">
 <div class="content fade">
 <h1>About Me</h1>
 <div class="card">
-<p>Main <b>Manu Sonkar</b> – ek engineer, coder aur creator hoon. Mujhe tech, design aur machines ka combination pasand hai.</p>
+<p>I am <b>Manu Sonkar</b> – an engineer, coder, and creator with passion for technology, designing, and stock market knowledge.</p>
 </div>
 
 <div class="card">
 <b>Name:</b> Manu Sonkar <br>
 <b>Role:</b> Engineer & Developer <br>
-<b>Interest:</b> Coding, CNC, Websites <br>
+<b>Interest:</b> Coding, CNC, Trading, Stocks & Options <br>
 <b>Goal:</b> Growth & Innovation 🚀  
 </div>
 </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" style="background:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1350') center/cover;">
+<section id="skills">
 <div class="content fade">
 <h1>My Skills</h1>
 <div class="card">
-<h2>💻 Coding</h2>
+<h2>💻 Coding & UI</h2>
 <div class="skill-bar">HTML/CSS<div class="bar"><div class="fill" style="--w:95%;"></div></div></div>
 <div class="skill-bar">JavaScript<div class="bar"><div class="fill" style="--w:85%;"></div></div></div>
-<div class="skill-bar">UI/UX<div class="bar"><div class="fill" style="--w:90%;"></div></div></div>
+<div class="skill-bar">UI/UX Design<div class="bar"><div class="fill" style="--w:90%;"></div></div></div>
 </div>
 
 <div class="card">
@@ -139,11 +143,18 @@ button:hover{background:linear-gradient(45deg,#00eaff,#0055ff);color:#fff;}
 <div class="skill-bar">CNC Programming<div class="bar"><div class="fill" style="--w:92%;"></div></div></div>
 <div class="skill-bar">Machine Knowledge<div class="bar"><div class="fill" style="--w:88%;"></div></div></div>
 </div>
+
+<div class="card">
+<h2>📈 Trading & Stock Market</h2>
+<div class="skill-bar">Stocks<div class="bar"><div class="fill" style="--w:90%;"></div></div></div>
+<div class="skill-bar">Futures & Options<div class="bar"><div class="fill" style="--w:85%;"></div></div></div>
+<div class="skill-bar">Share Investment<div class="bar"><div class="fill" style="--w:88%;"></div></div></div>
+</div>
 </div>
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" style="background:url('https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1350') center/cover;">
+<section id="portfolio">
 <div class="content fade">
 <h1>Portfolio</h1>
 <div class="card">
@@ -187,22 +198,26 @@ function sendWa(){
 
 /* SCROLL ANIMATION */
 const fades=document.querySelectorAll(".fade");
-function showElements(){
-  fades.forEach((el,i)=>{
-    const top=el.getBoundingClientRect().top;
-    if(top<window.innerHeight-100){
-      setTimeout(()=>{ el.classList.add("visible"); }, i*150);
-    }
-  });
-}
+function showElements(){fades.forEach(el=>{const top=el.getBoundingClientRect().top;if(top<window.innerHeight-100){el.classList.add("visible");}});}
 window.addEventListener("scroll",showElements);
 showElements();
 
-/* NAVBAR SCROLL EFFECT */
-const nav = document.querySelector('.menu');
-window.addEventListener('scroll',()=>{
-  if(window.scrollY>50){ nav.classList.add('scrolled'); }
-  else{ nav.classList.remove('scrolled'); }
+/* PARTICLES CONFIG */
+particlesJS("particles-js", {
+  "particles": {
+    "number": {"value":80,"density":{"enable":true,"value_area":800}},
+    "color":{"value":"#00eaff"},
+    "shape":{"type":"circle","stroke":{"width":0,"color":"#000"}},
+    "opacity":{"value":0.5,"random":true,"anim":{"enable":true,"speed":1,"opacity_min":0.1,"sync":false}},
+    "size":{"value":4,"random":true,"anim":{"enable":true,"speed":5,"size_min":0.1,"sync":false}},
+    "line_linked":{"enable":true,"distance":150,"color":"#00eaff","opacity":0.4,"width":1},
+    "move":{"enable":true,"speed":3,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false}
+  },
+  "interactivity":{
+    "detect_on":"canvas",
+    "events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"}}
+  },
+  "retina_detect":true
 });
 </script>
 
