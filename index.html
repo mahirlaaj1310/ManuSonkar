@@ -10,39 +10,46 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 html{scroll-behavior:smooth;}
-body{background:#000;color:white;overflow-x:hidden;}
+body{background:#000;color:white;overflow-x:hidden;transition:0.4s;}
+
+/* LIGHT MODE */
+body.light{background:#fff;color:#000;}
+body.light section::before{background:rgba(255,255,255,0.1);}
+body.light .menu{background:rgba(0,0,0,0.08);}
+body.light .dark-btn{background:#000;color:#00eaff;}
+body.light .card{background:rgba(0,0,0,0.1);color:#000;}
+body.light .box{background:#eee;color:#000;border-color:#00eaff;box-shadow:0 0 10px #00eaff;}
+body.light .profile-img{border:4px solid #00eaff;}
 
 /* SECTION STYLING */
-section{height:100vh;padding:70px;display:flex;flex-direction:column;justify-content:center;position:relative;}
-section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);}
+section{height:100vh;padding:70px;display:flex;flex-direction:column;justify-content:center;position:relative;transition:0.4s;}
+section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);transition:0.4s;}
 .content{position:relative;z-index:2;}
 
 /* NAVBAR */
 .menu{position:fixed;top:20px;right:20px;background:rgba(255,255,255,0.08);padding:12px 20px;border-radius:12px;backdrop-filter:blur(10px);z-index:1000;}
-.menu a{margin:0 12px;color:white;text-decoration:none;font-weight:600;}
+.menu a{margin:0 12px;color:white;text-decoration:none;font-weight:600;transition:0.4s;}
 
-/* DARK MODE */
-.dark-btn{position:fixed;bottom:20px;right:20px;background:#00eaff;color:#000;padding:12px 15px;border-radius:10px;font-weight:700;cursor:pointer;z-index:1000;}
+/* DARK MODE BUTTON */
+.dark-btn{position:fixed;bottom:20px;right:20px;background:#00eaff;color:#000;padding:12px 15px;border-radius:10px;font-weight:700;cursor:pointer;z-index:1000;transition:0.4s;}
 
 /* HEADINGS & TEXT */
-h1{font-size:60px;margin-bottom:10px;}
-p{font-size:20px;max-width:650px;margin-top:10px;}
+h1{font-size:60px;margin-bottom:10px;transition:0.4s;}
+p{font-size:20px;max-width:650px;margin-top:10px;transition:0.4s;}
 
 /* PROFILE IMAGE */
-.profile-img{width:180px;height:180px;border-radius:50%;border:4px solid #00eaff;box-shadow:0 0 25px #00eaff;margin-bottom:15px;}
+.profile-img{width:180px;height:180px;border-radius:50%;border:4px solid #00eaff;box-shadow:0 0 25px #00eaff;margin-bottom:15px;transition:0.4s;}
 
 /* TYPING */
 .typing{color:#00eaff;font-size:28px;font-weight:600;margin-top:5px;height:35px;overflow:hidden;border-right:3px solid #00eaff;white-space:nowrap;animation:typing 3.5s steps(30) infinite alternate;}
-@keyframes typing{0%{width:0}100%{width:360px}}
 
 /* CARDS */
-.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:25px;margin:20px 0;backdrop-filter:blur(10px);}
+.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:25px;margin:20px 0;backdrop-filter:blur(10px);transition:0.4s;}
 
 /* SKILL BARS */
 .skill-bar{margin:14px 0;}
 .bar{width:100%;height:14px;border-radius:8px;background:#222;overflow:hidden;}
 .fill{height:14px;background:#00eaff;width:0;animation:fill 2s forwards;}
-@keyframes fill{to{width:var(--w);}}
 
 /* GRID PORTFOLIO */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px;}
@@ -61,6 +68,7 @@ button{padding:12px 20px;font-size:20px;background:#00eaff;color:#000;border:non
 /* SCROLL ANIMATION */
 .fade{opacity:0;transform:translateY(40px);transition:all .8s ease;}
 .fade.visible{opacity:1;transform:translateY(0);}
+@keyframes typing{0%{width:0}100%{width:360px}}
 </style>
 </head>
 
@@ -86,7 +94,7 @@ button{padding:12px 20px;font-size:20px;background:#00eaff;color:#000;border:non
 <!-- HOME -->
 <section id="home" style="background:url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1350') center/cover;">
 <div class="content fade">
-    <img src="mypic.jpeg" class="profile-img">
+    <img src="images/mypic.jpeg" class="profile-img">
     <h1>I’m Manu Sonkar</h1>
     <div class="typing">Engineer • Developer • Creator</div>
     <p>Creative engineer with passion for coding, CNC, designing and premium website making.</p>
